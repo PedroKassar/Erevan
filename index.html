@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Erevan | Home
+    </title>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <h1>Erevan</h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Catalogo</a></li>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </header>
+    <!-- banner -->
+    <div class="banner"></div>
+    <!-- catalogo -->
+    <h2 class="tituloCatalogo">Catalogo</h2>
+    <section id="catalogo">
+        <div id="catalogoCards"></div>
+        <div id="catalogoCarrito"></div>
+    </section>
+    <!-- Carrito -->
+    <section>
+        <h2 class="tituloCarrito">Carrito:</h2>
+        <div id="carrito"></div>
+    </section>
+    <!-- Contacto -->
+    <h2 class="tituloContacto">Contacto</h2>
+    <section id="contacto">
+        <form class="form">
+            <div class="pageTitle title">Contactate!</div>
+            <div class="secondaryTitle title">Llena todos los campos para contactarte con nosotros.</div>
+            <input type="text" class="name formEntry" placeholder="Nombre" required/>
+            <input type="text" class="email formEntry" placeholder="Email" required/>
+            <textarea class="message formEntry" placeholder="Mensaje" required></textarea>
+            <input type="checkbox" class="termsConditions" value="Term" required>
+            <label style="color: grey" for="terms"> I Accept the <span style="color: #d10711">Terms of Use</span> & <span style="color: #d10711">Privacy Policy</span>.</label><br>
+            <button class="submit formEntry" onclick="thanks()">Enviar</button>
+          </form>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="info">
+            <div class="ubi">
+                <h3>Ubicacion:</h3>
+                <p>Av. Cabildo 1402, C1426 CABA</p>
+            </div>
+            <div class="tel">
+                <h3>Telefono:</h3>
+                <p>+541147851410</p>
+            </div>
+            <div class="mail">
+                <h3>Email:</h3>
+                <p>info@example.com</p>
+            </div>
+        </div>
+        <div class="footerSections">
+            <div class="sections">
+                <h4>Secciones:</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Catalogo</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                </ul>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6570.8951194994215!2d-58.45457806511228!3d-34.5675403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5c561aec40d%3A0x11c3a5e9cf9df47c!2sCalzados%20Erevan!5e0!3m2!1ses!2sar!4v1629061144499!5m2!1ses!2sar" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
