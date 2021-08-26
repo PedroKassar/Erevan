@@ -81,3 +81,7 @@ for (const card of cards) {
     carta.innerHTML = `<img src=${card.imagen}><h2>${card.nombre}</h2>`
     cartas.appendChild(carta);
 }
+
+const storage = (Producto, Precio) => {localStorage.setItem(Producto, Precio)};
+
+storage("Lista de Productos", JSON.stringify(productos));
