@@ -24,13 +24,9 @@ productos.push(new Productos(4, "Ojotas", 300));
 
 console.log(productos)
 
-let catalogo = document.getElementById("catalogoCarrito");
-
-for (const producto of productos) {
-    let botonCatalogo = document.createElement("div");
-    botonCatalogo.innerHTML = `<h3>$${producto.precio}</h3>
-    <button id=${producto.id} class="botonCarrito">+</button>`
-    catalogo.appendChild(botonCatalogo);
+for (const producto of productos){
+$("#catalogoCarrito").append(`<div><h3>$${producto.precio}</h3>
+<button id=${producto.id} class="botonCarrito">+</button></div>`);
 }
 
 const botones = document.getElementsByClassName("botonCarrito");
@@ -47,6 +43,7 @@ function AgregarCarrito() {
         innerCarrito += `<p>${producto.nombre} - ${producto.precio}</p>`
     }
 
+
     const divCarrito = document.getElementById("carrito");
     divCarrito.innerHTML = innerCarrito;
 
@@ -58,6 +55,8 @@ for (const boton of botones) {
     boton.addEventListener("click", AgregarCarrito);
 }
 
+// $(".botonCarrito").on('click', AgregarCarrito);
+
 class Cards {
     constructor(image, nameC) {
         this.imagen = image;
@@ -65,7 +64,7 @@ class Cards {
     }
 }
 
-let cartas = document.getElementById("catalogoCards");
+
 
 const cards = [];
 
@@ -77,11 +76,10 @@ cards.push(new Cards(src = 'img/foto1.jpg', "Ojotas"));
 console.log(cards)
 
 for (const card of cards) {
-    let carta = document.createElement("div");
-    carta.innerHTML = `<img src=${card.imagen}><h2>${card.nombre}</h2>`
-    cartas.appendChild(carta);
+    $("#catalogoCards").append(`<div><img src=${card.imagen}><h2>${card.nombre}</h2></div>`);
 }
 
 const storage = (Producto, Precio) => {localStorage.setItem(Producto, Precio)};
 
 storage("Lista de Productos", JSON.stringify(productos));
+
