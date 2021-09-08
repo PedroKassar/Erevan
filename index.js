@@ -24,8 +24,8 @@ productos.push(new Productos(4, "Ojotas", 300));
 
 console.log(productos)
 
-for (const producto of productos){
-$("#catalogoCarrito").append(`<div><h3>$${producto.precio}</h3>
+for (const producto of productos) {
+    $("#catalogoCarrito").append(`<div><h3>$${producto.precio}</h3>
 <button id=${producto.id} class="botonCarrito">+</button></div>`);
 }
 
@@ -79,7 +79,25 @@ for (const card of cards) {
     $("#catalogoCards").append(`<div><img src=${card.imagen}><h2>${card.nombre}</h2></div>`);
 }
 
-const storage = (Producto, Precio) => {localStorage.setItem(Producto, Precio)};
+const storage = (Producto, Precio) => {
+    localStorage.setItem(Producto, Precio)
+};
 
 storage("Lista de Productos", JSON.stringify(productos));
 
+$(".banner").prepend('<button id="btnFade">¡Hola!</button>');
+$(".banner").append(`<div id="divFade">
+                        <h3>¡Bienvenido a Erevan!</h3>
+                    </div>`);
+
+$("#btnFade").click(() => {
+    $("#divFade").fadeToggle("1000");
+});
+
+$(".tituloCatalogo").animate({
+    padding: '30px',
+}, 2000);
+
+$(".tituloCatalogo").animate({
+    padding: '0px',
+}, 2000);
