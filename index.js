@@ -81,13 +81,13 @@ const storage = (Producto, Precio) => {
 
 storage("Lista de Productos", JSON.stringify(productos));
 
-$(".tituloCatalogo").animate({
-    padding: '30px',
-}, 2000);
+// $(".tituloCatalogo").animate({
+//     padding: '30px',
+// }, 2000);
 
-$(".tituloCatalogo").animate({
-    padding: '0px',
-}, 2000);
+// $(".tituloCatalogo").animate({
+//     padding: '0px',
+// }, 2000);
 
 
 // Contacto
