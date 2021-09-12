@@ -36,19 +36,30 @@
     </section>
     <!-- Contacto -->
     <h2 class="tituloContacto">Contacto</h2>
-    <section id="contacto">
-        <form class="form">
+    <!-- <section id="contacto">
+        <form method="POST" class="form" id="formData">
             <div class="pageTitle title">Contactate!</div>
             <div class="secondaryTitle title">Llena todos los campos para contactarte con nosotros.</div>
-            <input type="text" class="name formEntry" placeholder="Nombre" required/>
-            <input type="text" class="email formEntry" placeholder="Email" required/>
-            <textarea class="message formEntry" placeholder="Mensaje" required></textarea>
+            <input id="nombreForm "type="text" class="name formEntry" placeholder="Nombre" required="required"/>
+            <input  id="mailForm" type="text" class="email formEntry" placeholder="Email" required="required"/>
+            <textarea  id="mensajeForm" class="message formEntry" placeholder="Mensaje" required></textarea>
             <input type="checkbox" class="termsConditions" value="Term" required>
             <label style="color: grey" for="terms"> I Accept the <span style="color: #d10711">Terms of Use</span> & <span style="color: #d10711">Privacy Policy</span>.</label><br>
-            <button class="submit formEntry" onclick="thanks()">Enviar</button>
+            <button id="botonEnviar" class="submit formEntry">Enviar</button>
           </form>
         </div>
+    </section> -->
+    <section id="contacto">
+        <form method="GET" id="formdata" class="form">
+            <div class="pageTitle title">Contactate!</div>
+            <div class="secondaryTitle title">Llena todos los campos para contactarte con nosotros.</div>
+            <input type="text" name="nombre" id="nombreForm" placeholder="Nombre" required="required" class="name formEntry">
+            <input type="text" name="apellidos" id="mailForm" placeholder="Email" required="required" class="email formEntry">
+            <textarea  id="mensajeForm"  placeholder="Mensaje" required="required" class="message formEntry"></textarea>
+            <input type="button" id="botonEnviar" value="Enviar" class="submit formEntry">
+        </form>
     </section>
+
     <!-- Footer -->
     <footer id="footer">
         <div class="info">

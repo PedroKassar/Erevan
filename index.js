@@ -55,16 +55,12 @@ for (const boton of botones) {
     boton.addEventListener("click", AgregarCarrito);
 }
 
-// $(".botonCarrito").on('click', AgregarCarrito);
-
 class Cards {
     constructor(image, nameC) {
         this.imagen = image;
         this.nombre = nameC;
     }
 }
-
-
 
 const cards = [];
 
@@ -85,15 +81,6 @@ const storage = (Producto, Precio) => {
 
 storage("Lista de Productos", JSON.stringify(productos));
 
-$(".banner").prepend('<button id="btnFade">¡Hola!</button>');
-$(".banner").append(`<div id="divFade">
-                        <h3>¡Bienvenido a Erevan!</h3>
-                    </div>`);
-
-$("#btnFade").click(() => {
-    $("#divFade").fadeToggle("1000");
-});
-
 $(".tituloCatalogo").animate({
     padding: '30px',
 }, 2000);
@@ -101,3 +88,42 @@ $(".tituloCatalogo").animate({
 $(".tituloCatalogo").animate({
     padding: '0px',
 }, 2000);
+
+
+// Contacto
+
+function validaForm() {
+    
+if($("#nombreForm").val() == ""){
+    alert("El campo nombre no puede estar vacio");
+    $("#nombreForm").focus();
+    return false;
+}
+
+if($("#mailForm").val() == ""){
+    alert("El campo Email no puede estar vacio");
+    $("#mailForm").focus();
+    return false;
+}
+
+if($("#mensajeForm").val() == ""){
+    alert("El campo Mensaje no puede estar vacio");
+    $("#mensajeForm").focus();
+    return false;
+}
+return true;
+}
+
+const URLGET = "https://jsonplaceholder.typicode.com/posts"
+
+$(document).ready( function() {   
+    $("#botonEnviar").click( function() {     
+        if(validaForm()){                              
+            $.get(URLGET,$("#formdata").serialize(),function(){
+                alert("Mensaje enviado con exito")   
+            });
+        }
+    });    
+});
+
+// 
