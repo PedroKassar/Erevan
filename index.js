@@ -7,85 +7,6 @@ function Tienda(name, street, heading) {
 const tienda = new Tienda("Erevan", "Av. Cabildo 1402", "Negocio de calzados");
 console.log(tienda);
 
-
-
-// Catalogo
-
-class Productos {
-    constructor(id, nameP, price, image) {
-        this.id = parseInt(id);
-        this.nombre = nameP;
-        this.precio = parseFloat(price);
-        this.imagen = image;
-    }
-}
-
-const productos = [];
-
-productos.push(new Productos(1, "Chinela negra", 700, 'img/foto3.jpg'));
-productos.push(new Productos(2, "Zapato Marcel", 400, 'img/foto4.jpg'));
-productos.push(new Productos(3, "Zapatilla Jaguar", 1000, 'img/foto2.jpg'));
-productos.push(new Productos(4, "Crocks SeaWalk", 300, 'img/foto1.jpg'));
-productos.push(new Productos(5, "Sandalia con taco", 700, 'img/foto5.jpg'));
-productos.push(new Productos(6, "Zapatilla con plataforma", 400, 'img/foto6.jpg'));
-productos.push(new Productos(7, "Chinela puntera cerrada", 1000, 'img/foto7.jpg'));
-productos.push(new Productos(8, "Pantufla con garras", 300, 'img/foto8.jpg'));
-productos.push(new Productos(9, "Pantufla con corderito", 700, 'img/foto9.jpg'));
-productos.push(new Productos(10, "Borcego de goma", 400, 'img/foto10.jpg'));
-productos.push(new Productos(11, "Sandalia jean", 1000, 'img/foto11.jpg'));
-productos.push(new Productos(12, "Zapatilla Jaguar", 300, 'img/foto12.jpg'));
-
-console.log(productos)
-
-for (const producto of productos) {
-    $("#catalogoCarrito").append(`<div class="cartaCatalogo">
-    <img src=${producto.imagen}><h2>${producto.nombre}</h2>
-    <h3>$${producto.precio}</h3>
-    <button id=${producto.id} class="botonCarrito">+</button>
-    </div>`);
-}
-
-// 
-
-// Carrito
-const carrito = [];
-
-function AgregarCarrito() {
-
-    const añadir = productos.find(producto => producto.id == this.id);
-    carrito.push(añadir);
-
-    let innerCarrito = '';
-    for (const producto of carrito) {
-        innerCarrito += `<p>${producto.nombre} - ${producto.precio}</p>`
-    }
-
-
-    const divCarrito = document.getElementById("carrito");
-    divCarrito.innerHTML = innerCarrito;
-
-    console.log("Agregado correctamente");
-
-}
-
-const botones = document.getElementsByClassName("botonCarrito");
-
-for (const boton of botones) {
-    boton.addEventListener("click", AgregarCarrito);
-}
-
-// 
-
-// Storage
-
-const storage = (Producto, Precio) => {
-    localStorage.setItem(Producto, Precio)
-};
-
-storage("Lista de Productos", JSON.stringify(productos));
-
-// 
-
 // Contacto
 
 function validaForm() {
@@ -151,5 +72,203 @@ $(".nosotrosParrafo2").animate({
 $(".nosotrosParrafo3").animate({
     margin: '0 0 0 50%',
 }, 2000);
+
+// Catalogo
+
+const baseDeDatos = [{
+        id: 1,
+        nombre: 'Chinela negra',
+        precio: 700,
+        imagen: 'img/foto3.jpg'
+    },
+    {
+        id: 2,
+        nombre: 'Zapato Marcel',
+        precio: 400,
+        imagen: 'img/foto4.jpg'
+    },
+    {
+        id: 3,
+        nombre: 'Zapatilla Jaguar',
+        precio: 1000,
+        imagen: 'img/foto2.jpg'
+    },
+    {
+        id: 4,
+        nombre: 'Crocks SeaWalk',
+        precio: 300,
+        imagen: 'img/foto1.jpg'
+    },
+    {
+        id: 5,
+        nombre: 'Sandalia con taco',
+        precio: 300,
+        imagen: 'img/foto5.jpg'
+    },
+    {
+        id: 6,
+        nombre: 'Zapatilla con plataforma',
+        precio: 300,
+        imagen: 'img/foto6.jpg'
+    },
+    {
+        id: 7,
+        nombre: 'Chinela puntera cerrada',
+        precio: 300,
+        imagen: 'img/foto7.jpg'
+    },
+    {
+        id: 8,
+        nombre: 'Pantufla con garras',
+        precio: 300,
+        imagen: 'img/foto8.jpg'
+    },
+    {
+        id: 9,
+        nombre: 'Pantufla con corderito',
+        precio: 300,
+        imagen: 'img/foto9.jpg'
+    },
+    {
+        id: 10,
+        nombre: 'Borcego de goma',
+        precio: 300,
+        imagen: 'img/foto10.jpg'
+    },
+    {
+        id: 11,
+        nombre: 'Sandalia jean',
+        precio: 300,
+        imagen: 'img/foto11.jpg'
+    },
+    {
+        id: 12,
+        nombre: 'Zapatilla Jaguar',
+        precio: 300,
+        imagen: 'img/foto12.jpg'
+    }
+
+];
+
+let carrito = [];
+let total = 0;
+const DOMitems = document.querySelector('#items');
+const DOMcarrito = document.querySelector('#carrito');
+const DOMtotal = document.querySelector('#total');
+const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+
+function renderizarProductos() {
+    baseDeDatos.forEach((info) => {
+        // Estructura
+        const miNodo = document.createElement('div');
+        miNodo.classList.add('card', 'col-sm-4');
+        // Body
+        const miNodoCardBody = document.createElement('div');
+        miNodoCardBody.classList.add('card-body');
+        // Titulo
+        const miNodoTitle = document.createElement('h5');
+        miNodoTitle.classList.add('card-title');
+        miNodoTitle.textContent = info.nombre;
+        // Imagen
+        const miNodoImagen = document.createElement('img');
+        miNodoImagen.classList.add('img-fluid');
+        miNodoImagen.setAttribute('src', info.imagen);
+        // Precio
+        const miNodoPrecio = document.createElement('p');
+        miNodoPrecio.classList.add('card-text');
+        miNodoPrecio.textContent = '$' + info.precio;
+        // Boton 
+        const miNodoBoton = document.createElement('button');
+        miNodoBoton.classList.add('btn', 'btn-primary');
+        miNodoBoton.textContent = '+';
+        miNodoBoton.setAttribute('marcador', info.id);
+        miNodoBoton.addEventListener('click', añadirProductoAlCarrito);
+        // Insertamos
+        miNodoCardBody.appendChild(miNodoImagen);
+        miNodoCardBody.appendChild(miNodoTitle);
+        miNodoCardBody.appendChild(miNodoPrecio);
+        miNodoCardBody.appendChild(miNodoBoton);
+        miNodo.appendChild(miNodoCardBody);
+        DOMitems.appendChild(miNodo);
+    });
+}
+
+function añadirProductoAlCarrito(evento) {
+
+    carrito.push(evento.target.getAttribute('marcador'))
+    calcularTotal();
+    renderizarCarrito();
+}
+
+function renderizarCarrito() {
+
+    DOMcarrito.textContent = '';
+    const carritoSinDuplicados = [...new Set(carrito)];
+    carritoSinDuplicados.forEach((item) => {
+
+        const miItem = baseDeDatos.filter((itemBaseDatos) => {
+            return itemBaseDatos.id === parseInt(item);
+        });
+
+        const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+            return itemId === item ? total += 1 : total;
+        }, 0);
+
+        const miNodo = document.createElement('li');
+        miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+        miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}€`;
+
+        const miBoton = document.createElement('button');
+        miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+        miBoton.textContent = 'X';
+        miBoton.style.marginLeft = '1rem';
+        miBoton.dataset.item = item;
+        miBoton.addEventListener('click', borrarItemCarrito);
+
+        miNodo.appendChild(miBoton);
+        DOMcarrito.appendChild(miNodo);
+    });
+}
+
+
+function borrarItemCarrito(evento) {
+
+    const id = evento.target.dataset.item;
+    carrito = carrito.filter((carritoId) => {
+        return carritoId !== id;
+    });
+
+    renderizarCarrito();
+    calcularTotal();
+}
+
+
+function calcularTotal() {
+
+    total = 0;
+
+    carrito.forEach((item) => {
+        const miItem = baseDeDatos.filter((itemBaseDatos) => {
+            return itemBaseDatos.id === parseInt(item);
+        });
+        total = total + miItem[0].precio;
+    });
+
+    DOMtotal.textContent = total.toFixed(2);
+}
+
+
+function vaciarCarrito() {
+
+    carrito = [];
+
+    renderizarCarrito();
+    calcularTotal();
+}
+
+DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+
+renderizarProductos();
+
 
 // 
