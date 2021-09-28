@@ -14,20 +14,55 @@
 <body>
     <!-- header -->
     <header>
-        <h1>Erevan</h1>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="catalogo.html">Catalogo</a></li>
-            <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="index.html#tituloContacto">Contacto</a></li>
-        </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <div id="headerPartesJuntas">
+                    <div class="headerParte1">
+                        <h2>Erevan</h2>
+                    </div>
+                    <div class="headerParte2">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="catalogo.html" id="navbarDropdownMenuLink"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Productos
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li><a class="dropdown-item" href="productosHombre.html">Hombre</a></li>
+                                        <li><a class="dropdown-item" href="productosMujer.html">Mujer</a></li>
+                                        <li><a class="dropdown-item" href="productosNiños.html">Niños</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html#tituloContacto">Contacto</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="nosotros.html">Nosotros</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
     <!--  -->
-    <section id="sobreNosotros">
-        <div id="nosotros1"></div>
-        <div id="nosotros2"></div>
-        <div id="nosotros3"></div>
-    </section>
+    <div id="fondoNosotros">
+        <section id="sobreNosotros">
+            <div id="nosotros1"></div>
+            <div id="nosotros2"></div>
+            <div id="nosotros3"></div>
+        </section>
+    </div>
     <!-- Footer -->
     <footer id="footer">
         <div class="info">
@@ -49,9 +84,13 @@
                 <h4>Secciones:</h4>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="catalogo.html">Catalogo</a></li>
+                    <li>
+                        <h2>Productos</h2>
+                        <a class="dropdown-item" href="productosHombre.html">Hombre</a>
+                        <a class="dropdown-item" href="productosMujer.html">Mujer</a>
+                        <a class="dropdown-item" href="productosNiños.html">Niños</a>
+                    </li>
                     <li><a href="nosotros.html">Nosotros</a></li>
-                    <li><a href="index.html#tituloContacto">Contacto</a></li>
                 </ul>
             </div>
             <iframe
@@ -60,7 +99,9 @@
         </div>
     </footer>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="index.js"></script>
 </body>

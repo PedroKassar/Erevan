@@ -16,18 +16,6 @@ li {
 }
 
 /* Header */
-header {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    border-bottom: 2px solid black;
-}
-
-header ul {
-    display: flex;
-    align-items: center;
-    margin: 0px;
-}
 
 header ul li {
     list-style-type: none;
@@ -42,8 +30,18 @@ header a {
     color: black;
 }
 
-header li:hover {
-    transform: scale(1.5);
+#headerPartesJuntas{
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerParte1{
+padding: 30px;
+}
+
+.headerParte2{
+    padding: 30px;
+    margin-left: 500px;
 }
 
 /* Carrusel */
@@ -102,74 +100,9 @@ header li:hover {
 
 /* catalogo */
 
-.tituloCatalogo {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 34px;
-    -webkit-text-decoration: underline double #d10711;
-    text-decoration: underline double #d10711;
+.container{
+    margin: 50px auto;
 }
-
-#catalogo {
-    display: flex;
-    flex-direction: column;
-}
-
-.botonCarrito {
-    width: 50px;
-    text-decoration: none;
-    border-radius: 30px;
-    font-size: 35px;
-    border: 2px solid #d10711;
-    margin: 0 43%;
-}
-
-.botonCarrito:active {
-    opacity: 50%;
-}
-
-#catalogoCarrito {
-    max-width: 1600px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.cartaCatalogo {
-    margin: 50px;
-    padding: 20px;
-    border: 2px solid black;
-    border-radius: 8px;
-    width: 350px;
-}
-
-.cartaCatalogo img {
-    width: 210px;
-    height: 210px;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-}
-
-.cartaCatalogo h2 {
-    text-align: center;
-}
-
-.cartaCatalogo h3 {
-    text-align: center;
-}
-
-/* Carrito */
-
-.tituloCarrito {
-    text-align: center;
-}
-
-#carrito {
-    text-align: center;
-}
-
 
 /* Contacto */
 #tituloContacto {
@@ -181,7 +114,7 @@ header li:hover {
 }
 
 #contacto {
-    margin-top: 50px;
+    margin: 50px auto;
 }
 
 #formData p {
@@ -304,7 +237,6 @@ header li:hover {
 /* Footer */
 
 #footer {
-    margin-top: 50px;
     background-color: rgb(44, 44, 44);
 }
 
@@ -343,6 +275,11 @@ header li:hover {
     color: white;
     text-decoration: none;
     list-style-type: square;
+    font-size: 20px;
+}
+
+.footerSections h2{
+    font-size: 20px;
 }
 
 .footerSections a {
@@ -352,8 +289,10 @@ header li:hover {
 
 /* Nosotros */
 
-#sobreNosotros {
-    background-color: rgb(0, 255, 136);
+#fondoNosotros {
+    background-image: url(/img/fondoerevan.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 #sobreNosotros p {
@@ -366,7 +305,6 @@ header li:hover {
 
 #nosotros1 .nosotrosParrafo1 {
     width: 100%;
-    /* margin-left: 50%; */
     padding: 20px;
     background-color: black;
 }
@@ -377,7 +315,6 @@ header li:hover {
 
 #nosotros2 .nosotrosParrafo2 {
     width: 100%;
-    /* margin-right: 50%; */
     padding: 20px;
     background-color: black;
 }
@@ -388,7 +325,6 @@ header li:hover {
 
 #nosotros3 .nosotrosParrafo3 {
     width: 100%;
-    /* margin-left: 50%; */
     padding: 20px;
     background-color: black;
 }
