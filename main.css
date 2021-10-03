@@ -305,8 +305,8 @@ padding: 30px;
 
 #nosotros1 .nosotrosParrafo1 {
     width: 100%;
-    padding: 20px;
-    background-color: black;
+    padding: 60px;
+    background-color: rgb(27, 27, 27);
 }
 
 #nosotros2 {
@@ -315,8 +315,8 @@ padding: 30px;
 
 #nosotros2 .nosotrosParrafo2 {
     width: 100%;
-    padding: 20px;
-    background-color: black;
+    padding: 60px;
+    background-color: rgb(27, 27, 27);
 }
 
 #nosotros3 {
@@ -325,6 +325,6 @@ padding: 30px;
 
 #nosotros3 .nosotrosParrafo3 {
     width: 100%;
-    padding: 20px;
-    background-color: black;
+    padding: 60px;
+    background-color: rgb(27, 27, 27);
 }
